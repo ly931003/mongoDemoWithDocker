@@ -9,13 +9,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Document("user")
 @Data
-public class User {
+public class User implements Serializable {
     @Id
     private String id;
     private String username;
@@ -27,7 +28,7 @@ public class User {
     @Getter
     @Setter
     @ToString
-    public static class Address {
+    public static class Address implements Serializable {
         private String city;
         private String district;
     }
@@ -35,7 +36,7 @@ public class User {
     @Getter
     @Setter
     @ToString
-    public static class Order {
+    public static class Order implements Serializable {
         private String name;
         private Integer amount;
     }
